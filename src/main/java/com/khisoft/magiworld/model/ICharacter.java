@@ -1,8 +1,17 @@
 package com.khisoft.magiworld.model;
 
-public interface ICharacter {
+import com.khisoft.magiworld.exception.CharacterException;
 
-    int basicAttack();
-    String getSentence();
-    int getSpecialAttack();
+public interface ICharacter {
+    /**
+     * This method is the basic attack.
+     * @return IAttack interface model.
+     */
+    IAttack basicAttack();
+
+    /**
+     * This method is the special attack.
+     * @return IAttack interface model.
+     */
+    IAttack getSpecialAttack() throws CharacterException;
 }

@@ -14,7 +14,7 @@ public abstract class Character implements ICharacter{
      * @param strength The strength
      * @param agility The agility
      * @param intelligence The intelligence
-     * @throws CharacterException
+     * @throws CharacterException The character exception
      */
     public Character(int level, int strength, int agility, int intelligence) throws CharacterException {
         this.level = level;
@@ -43,7 +43,9 @@ public abstract class Character implements ICharacter{
         return hp;
     }
 
-
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
 
     public int getStrength() {
         return strength;
@@ -81,7 +83,7 @@ public abstract class Character implements ICharacter{
      * This method check the feature.
      * @param feature The feature to check.
      * @return The 'True' if the feature is correct.
-     * @throws CharacterException
+     * @throws CharacterException The character exception
      */
     private boolean checkFeature(int feature) throws CharacterException {
         if (feature < 0 || feature > 100) {
