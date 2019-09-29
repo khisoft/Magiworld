@@ -2,20 +2,21 @@ package com.khisoft.magiworld.model;
 
 import com.khisoft.magiworld.exception.CharacterException;
 
-public class Prowler extends Character {
+public class Prowler extends Character implements ICharacter{
 
 
     /**
      * The constructor.
      *
+     * @param index        The index
      * @param level        The level
      * @param strength     The strength
      * @param agility      The agility
      * @param intelligence The intelligence
      * @throws CharacterException The character exception
      */
-    public Prowler(int level, int strength, int agility, int intelligence) throws CharacterException {
-        super(level, strength, agility, intelligence);
+    public Prowler(int index, int level, int strength, int agility, int intelligence) throws CharacterException {
+        super(index,level, strength, agility, intelligence);
     }
 
     /**
@@ -42,6 +43,7 @@ public class Prowler extends Character {
 
     @Override
     public String toString() {
-        return "Oyé oyé chevalier je suis le Rodeur";
+        return "Oyé oyé chevalier je suis le Rodeur Joueur "+getIndex()+" niveau "+getLevel()+" je posséde "+getHp()+
+                " de vitalité, "+getStrength()+" de force, "+getAgility()+" d'agilité et "+getIntelligence()+" d'intelligence !";
     }
 }

@@ -2,18 +2,19 @@ package com.khisoft.magiworld.model;
 
 import com.khisoft.magiworld.exception.CharacterException;
 
-public class Mage extends Character {
+public class Mage extends Character implements ICharacter{
     /**
      * The constructor.
      *
+     * @param index        The personage index
      * @param level        The level
      * @param strength     The strength
      * @param agility      The agility
      * @param intelligence The intelligence
      * @throws CharacterException The character exception
      */
-    public Mage(int level, int strength, int agility, int intelligence) throws CharacterException {
-        super(level, strength, agility, intelligence);
+    public Mage(int index, int level, int strength, int agility, int intelligence) throws CharacterException {
+        super(index,level, strength, agility, intelligence);
     }
 
     /**
@@ -37,7 +38,7 @@ public class Mage extends Character {
         int hpWon = getIntelligence()*2;
         int hp = getHp()+hpWon;
         if(hp>getLevel()*5) {
-            hp = getLevel() * 5;
+            hp = getLevel();
         }
         setHp(hp);
         IAttack  attack = new Attack(this.getStrength(),"Soin et gagne "+hp+" vitalité");
@@ -46,6 +47,7 @@ public class Mage extends Character {
 
     @Override
     public String toString() {
-        return "Abracadabra je suis le mage";
+        return "Abracadabra je suis le mage Joueur "+getIndex()+" niveau "+getLevel()+" je posséde "+getHp()+
+                " de vitalité, "+getStrength()+" de force, "+getAgility()+" d'agilité et "+getIntelligence()+" d'intelligence !";
     }
 }

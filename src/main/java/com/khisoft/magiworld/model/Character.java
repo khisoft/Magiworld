@@ -6,17 +6,19 @@ import com.khisoft.magiworld.exception.CharacterException;
  * @author Xgin33
  */
 public abstract class Character implements ICharacter{
-    private int level, hp, strength, agility, intelligence;
+    private int index,level, hp, strength, agility, intelligence;
 
     /**
      * The constructor.
+     * @param index The personage index
      * @param level The level
      * @param strength The strength
      * @param agility The agility
      * @param intelligence The intelligence
      * @throws CharacterException The character exception
      */
-    public Character(int level, int strength, int agility, int intelligence) throws CharacterException {
+    public Character(int index, int level, int strength, int agility, int intelligence) throws CharacterException {
+        this.index = index;
         this.level = level;
         this.strength = strength;
         this.agility = agility;
@@ -26,6 +28,13 @@ public abstract class Character implements ICharacter{
 
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 
     public int getLevel() {
         return level;
