@@ -1,4 +1,4 @@
-package com.khisoft.magiworld;
+package com.khisoft.magiworld.utils;
 
 import com.khisoft.magiworld.exception.CharacterException;
 import com.khisoft.magiworld.model.ICharacter;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MagiWorldUtils {
+public class MagiWorldUtil {
 
     /**
      * Constants
