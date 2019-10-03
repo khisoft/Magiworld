@@ -23,7 +23,7 @@ public class Mage extends Character implements ICharacter{
     * @return IAttack interface model.
     */
     public IAttack getBasicAttack() {
-        IAttack  attack = new Attack(this.getStrength(),"Coup d’Épée et inflige "+this.getStrength()+" dommages");
+        IAttack  attack = new Attack(this.getIntelligence(),"Joueur "+getIndex()+" utilise Boule de Feu et inflige "+this.getIntelligence()+" dommages");
         return attack;
     }
 
@@ -41,7 +41,7 @@ public class Mage extends Character implements ICharacter{
             hp = getLevel();
         }
         setHp(hp);
-        IAttack  attack = new Attack(this.getStrength(),"Soin et gagne "+hp+" vitalité");
+        IAttack  attack = new Attack(this.getStrength(),"Joueur "+getIndex()+" utilise Soin et gagne "+hp+" vitalité");
         return attack;
     }
 

@@ -7,6 +7,7 @@ import com.khisoft.magiworld.model.Prowler;
 import com.khisoft.magiworld.model.Warrior;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -53,7 +54,13 @@ public class MagiWorldUtil {
      * @param chosenCharacter The chosen character
      * @return The character.
      */
-    private static ICharacter create(final Scanner scanner,int index, int chosenCharacter)   {
+    private static ICharacter create(final Scanner scanner,int index, int chosenCharacter) throws CharacterException {
+        if(!Arrays.asList(WARRIOR,PROWLER, MAGE).contains(chosenCharacter))
+        {
+            System.err.println("Le personnage " + chosenCharacter + " n'est pas encore disponible");
+            return createCharacter(scanner,index);
+        }
+
         int level = getLevel(scanner);
         int strength = getFeature(scanner,"Force du personnage ?");
         int agility = getFeature(scanner,"Agilité du personnage ?");
@@ -71,7 +78,7 @@ public class MagiWorldUtil {
                     character = new Mage(index, level, strength, agility, intelligence);
                     break;
                 default:
-                    System.err.println("Le personnage " + chosenCharacter + " n'est pas encore disponible");
+                    new CharacterException("Le personnage " + chosenCharacter + " n'est pas encore disponible");
             }
         }catch (CharacterException characterException)
         {

@@ -25,7 +25,7 @@ public class Prowler extends Character implements ICharacter{
      * @return IAttack interface model.
      */
     public IAttack getBasicAttack() {
-        IAttack  attack = new Attack(this.getAgility(),"Tir à l’Arc et inflige "+this.getAgility()+" dommages");
+        IAttack  attack = new Attack(this.getAgility(),"Joueur "+getIndex()+" utilise Tir à l’Arc et inflige "+this.getAgility()+" dommages");
         return attack;
     }
 
@@ -37,7 +37,7 @@ public class Prowler extends Character implements ICharacter{
      */
     public IAttack getSpecialAttack() throws CharacterException {
         setAgility(getAgility()/2+getAgility());
-        IAttack  attack = new Attack(this.getAgility(),"Concentration et inflige "+this.getAgility()+" dommages");
+        IAttack  attack = new Attack(this.getAgility(),"Joueur "+getIndex()+" utilise Concentration et inflige "+this.getAgility()+" dommages");
         return attack;
     }
 

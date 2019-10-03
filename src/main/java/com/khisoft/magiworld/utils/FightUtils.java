@@ -12,25 +12,32 @@ public class FightUtils {
     private final static int SPECIAL_ATTACK=2;
 
     public static void fight(final List<ICharacter> characters, final Scanner scanner) throws CharacterException {
-        int characterIndex=1;
+        int characterIndex=0;
         while (true)
         {
-            int listIndexPlayer= characterIndex-1;
-            ICharacter character =  characters.get(listIndexPlayer);
-
+            ICharacter character =  characters.get(characterIndex);
             int damage = getAttack(scanner,character);
-            ICharacter characterNext = characters.get(listIndexPlayer+1);
+            if(characterIndex == 0) {
+                characterIndex = 1;
+            }
+            else {
+                characterIndex = 0;
+            }
+            ICharacter characterNext = characters.get(characterIndex);
             updateHP(damage,characterNext);
-            if(characterNext.getHp()<=0 || character.getHp()<=0)
+            if(characterNext.getHp()<=0 )
+            {
+                System.out.println("Joueur "+characterNext.getIndex()+" a perdu");
+                break;
+            }
+            else if(character.getHp()<=0)
             {
                 System.out.println("Joueur "+character.getIndex()+" a perdu");
+                break;
             }
 
             //next turn
-            if(characterIndex == 1)
-                characterIndex = 2;
-            else
-                characterIndex=1;
+
 
         }
     }

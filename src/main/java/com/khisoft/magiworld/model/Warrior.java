@@ -23,7 +23,7 @@ public class Warrior extends  Character implements ICharacter {
      * @return IAttack interface model.
      */
     public IAttack getBasicAttack() {
-        IAttack  attack = new Attack(this.getStrength(),"Coup d’Épée et inflige "+this.getStrength()+" dommages");
+        IAttack  attack = new Attack(this.getStrength(),"Joueur "+getIndex()+" utilise Coup d’Épée et inflige "+this.getStrength()+" dommages");
         return attack;
     }
 
@@ -35,8 +35,10 @@ public class Warrior extends  Character implements ICharacter {
      * @return The IAttack interface model.
      */
     public IAttack getSpecialAttack() throws CharacterException {
-        setStrength(getStrength()/2);
-        IAttack  attack = new Attack(this.getStrength(),"Coup de Rage et inflige "+this.getStrength()+" dommages");
+        int hpLoose = getStrength()/2;
+        setHp(getHp()-hpLoose);
+        IAttack  attack = new Attack(this.getStrength()*2,"Joueur "+getIndex()+" utilise Coup de Rage et inflige "+this.getStrength()*2+" dommages");
+        System.out.println("Joueur "+getIndex()+" perd "+hpLoose+" points de vie");
         return attack;
     }
 
