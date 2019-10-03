@@ -3,6 +3,7 @@ package com.khisoft.magiworld;
 
 import com.khisoft.magiworld.exception.CharacterException;
 import com.khisoft.magiworld.model.ICharacter;
+import com.khisoft.magiworld.utils.FightUtils;
 import com.khisoft.magiworld.utils.MagiWorldUtil;
 
 import java.util.List;
@@ -20,9 +21,9 @@ public class MagiWorld {
     {
         try {
             final List<ICharacter> characters = MagiWorldUtil.createCharacters(scanner);
-
+            FightUtils.fight(characters,scanner);
         } catch (CharacterException e) {
-            e.printStackTrace();
+           System.err.println(e.getMessage());
         }
         finally {
             scanner.close();
