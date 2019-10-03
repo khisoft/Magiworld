@@ -24,7 +24,7 @@ public class Prowler extends Character implements ICharacter{
      * The basic attack is "Performs damage equal to the player's agility on the opponent".
      * @return IAttack interface model.
      */
-    public IAttack basicAttack() {
+    public IAttack getBasicAttack() {
         IAttack  attack = new Attack(this.getAgility(),"Tir à l’Arc et inflige "+this.getAgility()+" dommages");
         return attack;
     }

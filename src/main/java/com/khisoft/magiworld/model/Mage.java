@@ -22,7 +22,7 @@ public class Mage extends Character implements ICharacter{
     * The basic attack is "Performs damage equal to the player's strength on the opponent".
     * @return IAttack interface model.
     */
-    public IAttack basicAttack() {
+    public IAttack getBasicAttack() {
         IAttack  attack = new Attack(this.getStrength(),"Coup d’Épée et inflige "+this.getStrength()+" dommages");
         return attack;
     }

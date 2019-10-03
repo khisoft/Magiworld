@@ -20,6 +20,7 @@ public class MagiWorld {
     {
         try {
             final List<ICharacter> characters = MagiWorldUtil.createCharacters(scanner);
+
         } catch (CharacterException e) {
             e.printStackTrace();
         }

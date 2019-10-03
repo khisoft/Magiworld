@@ -54,6 +54,10 @@ public abstract class Character implements ICharacter{
 
     public void setHp(int hp) {
         this.hp = hp;
+        if(this.hp<=0)
+        {
+            System.out.println("Joueur "+index+" est mort.");
+        }
     }
 
     public int getStrength() {
