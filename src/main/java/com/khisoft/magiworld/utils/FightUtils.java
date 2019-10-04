@@ -37,9 +37,9 @@ public class FightUtils {
             }
 
             //next turn
-
-
         }
+
+        System.exit(0);
     }
 
     /**
