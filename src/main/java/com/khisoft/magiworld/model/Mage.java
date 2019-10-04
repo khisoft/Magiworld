@@ -38,16 +38,16 @@ public class Mage extends Character implements ICharacter{
         int hpWon = getIntelligence()*2;
         int hp = getHp()+hpWon;
         if(hp>getLevel()*5) {
-            hp = getLevel();
+            hp = getLevel()*5;
         }
         setHp(hp);
-        IAttack  attack = new Attack(this.getStrength(),"Joueur "+getIndex()+" utilise Soin et gagne "+hp+" vitalité");
+        IAttack  attack = new Attack(this.getStrength(),"Joueur "+getIndex()+" utilise Soin et gagne "+hpWon+" de vitalité");
         return attack;
     }
 
     @Override
     public String toString() {
-        return "Abracadabra je suis le mage Joueur "+getIndex()+" niveau "+getLevel()+" je posséde "+getHp()+
+        return "Abracadabra je suis le Mage Joueur "+getIndex()+" niveau "+getLevel()+" je posséde "+getHp()+
                 " de vitalité, "+getStrength()+" de force, "+getAgility()+" d'agilité et "+getIntelligence()+" d'intelligence !";
     }
 }
